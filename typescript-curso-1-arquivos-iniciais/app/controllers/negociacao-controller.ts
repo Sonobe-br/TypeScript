@@ -11,8 +11,9 @@ export class NegociacaoController {
         this.inputValor = document.querySelector('#valor');
     } 
 
-    adicona(){
-
+    //método
+    adicona(){ 
+ 
         console.log(this.inputData);
         console.log(this.inputQuantidade);
         console.log(this.inputValor);

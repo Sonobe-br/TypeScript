@@ -4,6 +4,7 @@ export class NegociacaoController {
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
     }
+    //método
     adicona() {
         console.log(this.inputData);
         console.log(this.inputQuantidade);
