@@ -10,6 +10,8 @@ export class Negociacao {
 
     get data(): Date {
 
+        const data = new Date(this._data.getTime());
+
         return this._data;
     } 
 
@@ -33,5 +35,3 @@ export class Negociacao {
 
 }
 
-/* Poderia simplificar este código usando a palavra chave 'readonly', que permite definir o valor 
-na inicialização ou apenas no construtor, deixando somente a propriedade get volume. */

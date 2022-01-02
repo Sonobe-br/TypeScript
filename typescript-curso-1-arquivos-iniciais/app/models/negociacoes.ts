@@ -2,7 +2,7 @@ import { Negociacao } from "./negociacao.js";
 
 export class Negociacoes {
 
-    private negociacoes: Array<Negociacao> = []; //atalho > : Negociacao []
+    private negociacoes: Array<Negociacao> = []; 
 
     adiciona(negociacao:Negociacao) {
 
@@ -10,7 +10,7 @@ export class Negociacoes {
 
     }
 
-    lista(): ReadonlyArray<Negociacao> {       //atalho > : readonly Negociacao []
+    lista(): ReadonlyArray<Negociacao> {       
 
         return this.negociacoes;      
 

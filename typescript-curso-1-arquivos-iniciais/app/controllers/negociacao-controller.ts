@@ -18,8 +18,10 @@ export class NegociacaoController {
     adicona(): void {
         
         const negociacao = this.criaNegociacao();
+        negociacao.data.setDate(27);
         this.negociacoes.adiciona(negociacao);
         /* this.negociacoes.lista().pop(); */
+
         console.log(this.negociacoes.lista());
         this.limparFormulario();
         
