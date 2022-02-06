@@ -3,6 +3,7 @@ import { Negociacoes } from "../models/negociacoes.js";
 export class NegociacoesView {
 
     private elemento: HTMLElement;
+    data: number | Date;
 
     constructor (seletor: string) {
 
@@ -17,7 +18,7 @@ export class NegociacoesView {
                 <thead>
                     <tr> 
                         <th>DATE</th>
-                        <th>THE AMOUNT</th>
+                        <th>AMOUNT</th>
                         <th>VALUE</th>
                     </tr>
                 </thead>
@@ -27,7 +28,7 @@ export class NegociacoesView {
 
                         return `
                          <tr>
-                             <td>!!!</td>
+                             <td>${new Intl.DateTimeFormat().format(this.data)}</td>
                              <td>${negociacao.quantidade}</td>
                              <td>${negociacao.valor}</td> 
                          </tr>
