@@ -16,9 +16,9 @@ export class NegociacoesView {
             <table class = "table table-hover table-bordered">
                 <thead>
                     <tr> 
-                        <th>DATA</th>
-                        <th>QUANTIDADE</th>
-                        <th>VALOR</th>
+                        <th>DATE</th>
+                        <th>THE AMOUNT</th>
+                        <th>VALUE</th>
                     </tr>
                 </thead>
                 <tbody>
