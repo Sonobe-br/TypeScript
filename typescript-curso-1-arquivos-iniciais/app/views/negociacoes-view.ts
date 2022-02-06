@@ -1,15 +1,7 @@
 import { Negociacoes } from "../models/negociacoes.js";
+import { View } from "./view.js";
 
-export class NegociacoesView {
-
-    private elemento: HTMLElement;
-    data: number | Date;
-
-    constructor (seletor: string) {
-
-        this.elemento = <HTMLElement>document.querySelector(seletor);
-         
-    }
+export class NegociacoesView extends View<Negociacoes> {
 
     template(model: Negociacoes): string {
 
@@ -28,7 +20,7 @@ export class NegociacoesView {
 
                         return `
                          <tr>
-                             <td>${new Intl.DateTimeFormat().format(this.data)}</td>
+                             <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
                              <td>${negociacao.quantidade}</td>
                              <td>${negociacao.valor}</td> 
                          </tr>
@@ -41,11 +33,5 @@ export class NegociacoesView {
 
     }
 
-    update(model: Negociacoes): void {
-        const template = this.template(model);
-        console.log(this.template);
-        this.elemento.innerHTML = template;
-
-    };
 
 }

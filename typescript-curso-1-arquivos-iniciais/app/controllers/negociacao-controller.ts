@@ -11,7 +11,7 @@ export class NegociacaoController {
     private negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView('#negociacoesView');
     private mensagemView = new MensagemView('#mensagemView'); 
-    inputTotal: any;
+    /* inputTotal: any; */
 
     constructor() {
 
@@ -24,10 +24,9 @@ export class NegociacaoController {
     adiciona(): void {
         
         const negociacao = this.criaNegociacao();
-        negociacao.data.setDate(27);
         this.negociacoes.adiciona(negociacao);
         this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update('A sua negociação foi concluida com sucesso');
+        this.mensagemView.update('Negociação concluida com sucesso');
         this.limparFormulario();
         
     }
@@ -35,13 +34,9 @@ export class NegociacaoController {
     criaNegociacao(): Negociacao {
         
         const exp = /-/g;
-        
         const date = new Date(this.inputData.value.replace(exp, ','));
-        
         const quantidade = parseInt(this.inputQuantidade.value);
-        
         const valor = parseFloat(this.inputValor.value);
-        
         return new Negociacao (date, quantidade, valor);
 
     }
