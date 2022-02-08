@@ -11,7 +11,9 @@ export class NegociacaoController {
     private negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView('#negociacoesView');
     private mensagemView = new MensagemView('#mensagemView'); 
-    /* inputTotal: any; */
+    private readonly SABADO = 6;
+    private readonly DOMINGO = 0;
+    
 
     constructor() {
 
@@ -25,21 +27,24 @@ export class NegociacaoController {
     public adiciona(): void {
         
         const negociacao = this.criaNegociacao(); 
-        
-        //aqui esta a lógica que definio a regra de negociação da semana
-        if(negociacao.data.getDay() > 0 && negociacao.data.getDay() < 6) {
-
-            this.negociacoes.adiciona(negociacao);
-            this.limparFormulario();
-            this.atualizaView();
-
-        } else {
+        if(!this.diasUteis(negociacao.data)) {
 
             this.mensagemView
-                .update('As negociações são aceitas somente para os dias úteis');
+            .update('Attention: Trading will only be accepted for working days');
+            return;
 
         }
-        
+
+        this.negociacoes.adiciona(negociacao);
+        this.limparFormulario();
+        this.atualizaView();
+ 
+    }
+
+    private diasUteis(data: Date) {
+
+        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
+
     }
     
     private criaNegociacao(): Negociacao {
@@ -64,7 +69,7 @@ export class NegociacaoController {
     private atualizaView(): void {
 
         this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update('Negociação concluida com sucesso');
+        this.mensagemView.update('Trade completed successfully');
 
     }
 

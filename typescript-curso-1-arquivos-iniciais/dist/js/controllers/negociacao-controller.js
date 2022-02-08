@@ -23,7 +23,7 @@ export class NegociacaoController {
         }
         else {
             this.mensagemView
-                .update('As negociações são aceitas somente para os dias úteis');
+                .update('Attention: Trading will only be accepted for working days');
         }
     }
     criaNegociacao() {
@@ -41,6 +41,6 @@ export class NegociacaoController {
     }
     atualizaView() {
         this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update('Negociação concluida com sucesso');
+        this.mensagemView.update('Trade completed successfully');
     }
 }
