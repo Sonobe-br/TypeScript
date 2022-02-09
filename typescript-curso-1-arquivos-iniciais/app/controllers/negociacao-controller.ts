@@ -23,12 +23,18 @@ export class NegociacaoController {
     } 
 
     public adiciona(): void {
-        
-        const negociacao = this.criaNegociacao(); 
-        if(!this.diasUteis(negociacao.data)) {
 
+        const negociacao = Negociacao.criacaoDe(
+            this.inputData.value,
+            this.inputQuantidade.value,
+            this.inputValor.value
+
+        );
+        
+        /* const negociacao = this.criaNegociacao(); */ 
+        if(!this.diasUteis(negociacao.data)) {
             this.mensagemView
-            .update('Attention: Trading will only be accepted for working days');
+                .update('Attention: Trading will only be accepted for working days');
             return;
 
         }
@@ -46,16 +52,6 @@ export class NegociacaoController {
 
     }
     
-    private criaNegociacao(): Negociacao {
-        
-        const exp = /-/g;
-        const date = new Date(this.inputData.value.replace(exp, ','));
-        const quantidade = parseInt(this.inputQuantidade.value);
-        const valor = parseFloat(this.inputValor.value);
-        return new Negociacao (date, quantidade, valor);
-
-    }
-
     private limparFormulario(): void{
 
         this.inputData.value = '';
