@@ -5,7 +5,18 @@ export abstract class View<T> {
     private scape = false; 
 
     constructor(seletor: string, scape?: boolean) {
-        this.elemento = document.querySelector(seletor);
+
+        const elemento = document.querySelector(seletor);
+
+        if(elemento) {
+
+            this.elemento = elemento as HTMLElement;
+
+        } else {
+
+            throw Error (`The selector ${seletor} does not exist in Dom. Check!`);
+
+        }
 
         if(scape){
 
@@ -14,7 +25,6 @@ export abstract class View<T> {
         }
 
     }
-    
     
     public update(model: T): void {
         

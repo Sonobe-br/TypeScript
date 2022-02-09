@@ -14,7 +14,7 @@ if(form) {
 
 } else {
 
-    throw Error ('Não foi possível inicializar a aplicação. Verifique a existencia do form')
+    throw Error ('The application could not be initialized. Check the existence of the form')
 
 }
 
